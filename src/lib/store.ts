@@ -1,26 +1,25 @@
 // mystore.ts
-import type { FormValues } from '$lib';
+import type { FormValues } from '$lib/types';
 import { writable } from 'svelte/store';
-import { generateUniqueId } from './generateUniqueId';
+import { createEmptyExperience, createEmptyEducation, createSkill } from './utils';
 
 const initialValues: FormValues = {
-    information:{
-        name:'',
-        last_name: '',
-        phone: '',
-        location: '',
-    },
-	experiences: [
-		{
-			id: generateUniqueId(),
-			company: '',
-			job_name: '',
-			description: ''
-		}
-	]
+	information: {
+		name: '',
+		phone: '',
+		address: '',
+		email: '',
+		title: '',
+		website: '',
+		birthday: '',
+		presentation: ''
+	},
+	experiences: [createEmptyExperience()],
+	education: [createEmptyEducation()],
+	skills: [createSkill()]
 };
 // 0 is the initial value
 const formValues = writable(initialValues);
-const selectedNavValue = writable('A');
+const selectedNavValue = writable(0);
 
 export { formValues, selectedNavValue };

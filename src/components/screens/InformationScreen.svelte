@@ -2,7 +2,7 @@
 	import Input from '$components/Input.svelte';
 	import { formValues } from '$lib/store';
 
-	let information: any = [];
+	let information: any;
 
 	formValues.subscribe((values) => {
 		if (values?.information) {
@@ -17,6 +17,11 @@
 <p>dani</p>
 <div class="box2">
 	<Input name="name" label="Nombre" profile="information" value={information.name} />
-	<Input name="last_name" label="Apellido" profile="information" value={information.last_name} />
-	<Input name="location" profile="information" value={information.location} label="Dirección"/>
+	<Input name="email" label="Correo electrónico" profile="information" value={information.email} />
+	<Input name="birthday" label="Fecha de cumpleaños" profile="information" value={information.birthday} />
+	<Input name="phone" label="Teléfono" profile="information" value={information.phone} />
+	<Input name="website" label="Sitio web" profile="information" value={information.website} />
+	<Input name="title" label="Titular" profile="information" value={information.title} />
+	<Input name="presentation" label="Presentación" profile="information" value={information.presentation} />
+	<Input name="address" profile="information" value={information.address} label="Dirección"/>
 </div>

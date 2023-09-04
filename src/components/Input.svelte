@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { FormValues, Profile } from '$lib';
+	import type { FormValues, Profile } from '$lib/types';
 	import { formValues } from '$lib/store';
 
 	export let name: string;

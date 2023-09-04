@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { formValues } from '$lib/store';
 	import Input from '$components/Input.svelte';
-	import type { ExperiencesData } from '$lib';
-	import { createEmptyExperience } from '$lib/addExperience';
-	let experiences: Array<ExperiencesData> = [];
+	import type { ExperienceDto } from '$lib/types';
+	import { createEmptyExperience } from '$lib/utils';
+	let experiences: Array<ExperienceDto> = [];
 	let printed: boolean = false;
 
 
@@ -46,11 +46,11 @@
 			value={experience.company}
 		/>
 		<Input
-			name="description"
+			name="job_description"
             label="Descripcion del puesto"
 			profile="experiences"
 			id={experience.id}
-			value={experience.description}
+			value={experience.job_description}
 		/>
 		<Input name="job_name" profile="experiences" label="Puesto" id={experience.id} value={experience.job_name} />
 	{/each}

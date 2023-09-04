@@ -1,17 +1,18 @@
 <script lang="ts">
-	import ExperienceScreen from '$components/screens/ExperienceScreen.svelte';
+	import PreviewComponent from '$components/preview/PreviewComponent.svelte';
+import ExperienceScreen from '$components/screens/ExperienceScreen.svelte';
 	import InformationScreen from '$components/screens/InformationScreen.svelte';
 
 	import { selectedNavValue } from '$lib/store';
 
-	let selectedScreen: string;
+	let selectedScreen: number;
 	selectedNavValue.subscribe((value) => {
 		selectedScreen = value;
 	});
 
 	const screenMap: Record<string, ConstructorOfATypedSvelteComponent> = {
-		A: ExperienceScreen,
-		B: InformationScreen
+		1: ExperienceScreen,
+		0: InformationScreen
 	};
 </script>
 
@@ -39,7 +40,7 @@
 		<svelte:component this={screenMap[selectedScreen]} />
 	</div>
 	<div class="model-view">
-		<h1>dani</h1>
+		<PreviewComponent />
 	</div>
 </div>
 
@@ -48,13 +49,13 @@
 		background-color: white;
 		display: grid;
 		grid-template-columns: 54% 1fr;
-		grid-column-gap: 10px;
-		grid-row-gap: 10px;
 		grid-area: slot;
 		max-height: 90vh;
 	}
 	.data-view {
 		overflow-y: scroll;
+		max-height: 90vh;
+		display: grid;
 	}
 	.model-view {
 		height: 100%;
